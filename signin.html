@@ -7,61 +7,82 @@
 
 <body>
 
+
+
 <div class="form-container">
-  <div class="form-box">
 
-    <img src="https://king18-lab.github.io/2026social/stacklylogo%20(1).webp" class="logo">
+  <div class="form-box"><img src="https://king18-lab.github.io/2026social/stacklylogo%20(1).webp"
+class="logo">
 
-    <h2>Login</h2>
+<h2>Welcome Back</h2>
 
-    <input type="email" id="loginEmail" placeholder="Email">
-    <small class="error" id="loginEmailError"></small>
+<p class="subtitle">
+Access your logistics dashboard and manage shipments efficiently.
+</p>
 
-    <input type="password" id="loginPass" placeholder="Password">
-    <small class="error" id="loginPassError"></small>
+<select id="loginRole">
+  <option value="">Select Role</option>
+  <option value="admin">Admin</option>
+  <option value="user">User</option>
+</select>
 
-    <button onclick="validateLogin()">Login</button>
+<input type="email"
+id="loginEmail"
+placeholder="Email">
 
-    <!-- NEW BUTTON -->
-    <button class="home-btn" onclick="goHome()">Go to Home</button>
+<input type="password"
+id="loginPass"
+placeholder="Password">
 
-    <p class="link">New user? 
-      <a href="login.html">Create Account</a>
-    </p>
+<button onclick="validateLogin()">
+Login
+</button>
 
-  </div>
+<button class="home-btn"
+onclick="goHome()">
+Go To Home
+</button>
+
+<p class="link">
+New user?
+<a href="login.html">
+Create Account
+</a>
+</p>
+
 </div>
-
 <script>
+
 function validateLogin(){
 
-  let email = document.getElementById("loginEmail").value.trim();
-  let pass = document.getElementById("loginPass").value;
+ let role =
+ document.getElementById("loginRole").value;
 
-  let valid = true;
+ let email =
+ document.getElementById("loginEmail").value;
 
-  document.getElementById("loginEmailError").innerText = "";
-  document.getElementById("loginPassError").innerText = "";
+ let password =
+ document.getElementById("loginPass").value;
 
-  if(email === ""){
-    document.getElementById("loginEmailError").innerText = "Email required";
-    valid = false;
-  }
+ if(role==="" || email==="" || password===""){
+   alert("Fill all fields");
+   return;
+ }
+localStorage.setItem("loggedInEmail", email);
+ 
+ if(role==="admin"){
+   window.location.href="admin-dashboard.html";
+ }
+ else{
+   window.location.href="user-dashboard.html";
+ }
 
-  if(pass === ""){
-    document.getElementById("loginPassError").innerText = "Password required";
-    valid = false;
-  }
-
-  if(valid){
-    window.location.href = "404.html";
-  }
 }
 
 function goHome(){
-  window.location.href = "index.html";
+ window.location.href="index.html";
 }
-</script>
 
+</script>
 </body>
 </html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CargoFlow Admin Dashboard</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="overlay" onclick="toggleSidebar()"></div>
+
+<div class="sidebar">
+
+    <div class="close-btn" onclick="toggleSidebar()">
+✕
+</div>
+<a href="index.html">
+
+    <div class="logo-section">
+
+<img
+src="Assest/stacklylogo (1).webp"
+width="180">
+    </a>
+<p>ADMIN PANEL</p>
+
+</div>
+<h4 class="menu-title">MAIN</h4>
+
+<ul>
+
+<li class="menu-item active" onclick="showSection('dashboard',this)">
+    <i class="fa-solid fa-chart-line"></i>
+    Dashboard
+</li>
+
+<li class="menu-item" onclick="showSection('shipments',this)">
+    <i class="fa-solid fa-truck"></i>
+    Shipments
+</li>
+
+<li class="menu-item" onclick="showSection('fleet',this)">
+    <i class="fa-solid fa-truck-fast"></i>
+    Fleet
+</li>
+
+<li class="menu-item" onclick="showSection('warehouse',this)">
+    <i class="fa-solid fa-warehouse"></i>
+    Warehouses
+</li>
+
+</ul>
+
+<h4 class="menu-title">MANAGEMENT</h4>
+
+<ul>
+    <li class="menu-item"
+onclick="showSection('drivers',this)">
+    <i class="fa-solid fa-user-group"></i>
+    Drivers
+</li>
+
+    <li class="menu-item"
+onclick="showSection('reports',this)">
+    <i class="fa-solid fa-chart-pie"></i>
+    Reports
+</li>
+
+    <li class="menu-item"
+onclick="showSection('settings',this)">
+    <i class="fa-solid fa-gear"></i>
+    Settings
+</li>
+</ul>
+
+</div>
+
+<div class="main-content">
+
+    <div class="topbar">
+<button class="menu-btn" onclick="toggleSidebar()">
+☰
+</button>
+<h1>Welcome Back</h1>
+
+<div class="top-right">
+
+<div class="top-icons">
+
+<div id="userEmailDisplay"></div>
+
+<div class="icon-box">
+    <i class="fas fa-bell"></i>
+    <span class="tooltip">Notifications</span>
+</div>
+
+<div class="icon-box">
+    <i class="fas fa-comment-alt"></i>
+    <span class="tooltip">Messages</span>
+</div>
+
+<div class="icon-box">
+    <i class="fas fa-question-circle"></i>
+    <span class="tooltip">Help</span>
+</div>
+
+<a href="index.html" class="icon-box">
+    <i class="fas fa-sign-out-alt"></i>
+    <span class="tooltip">Logout</span>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+    <div id="dashboard" class="content-section">
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-box"></i>
+            <h3>Total Shipments</h3>
+            <h2>1,250</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-truck"></i>
+            <h3>Active Vehicles</h3>
+            <h2>320</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-warehouse"></i>
+            <h3>Warehouses</h3>
+            <h2>45</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Pending Deliveries</h3>
+            <h2>85</h2>
+        </div>
+
+    </div>
+
+    <div class="table-section">
+        <h2>Recent Shipments</h2>
+
+        <table>
+            <tr>
+                <th>Shipment ID</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Location</th>
+            </tr>
+
+            <tr>
+                <td>CF1001</td>
+                <td>Ramesh</td>
+                <td>In Transit</td>
+                <td>Chennai</td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
+<div id="shipments" class="content-section" style="display:none;">
+
+<h2>Shipments Management</h2>
+
+<div class="table-section">
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Customer</th>
+<th>Status</th>
+<th>Location</th>
+</tr>
+
+<tr>
+<td>CF1001</td>
+<td>Ramesh</td>
+<td>In Transit</td>
+<td>Chennai</td>
+</tr>
+
+<tr>
+<td>CF1002</td>
+<td>Suresh</td>
+<td>Delivered</td>
+<td>Madurai</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<div id="fleet" class="content-section" style="display:none;">
+
+<h2>Fleet Management</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-truck-fast"></i>
+<h3>Total Vehicles</h3>
+<h2>320</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-gas-pump"></i>
+<h3>Fuel Usage</h3>
+<h2>78%</h2>
+</div>
+
+</div>
+
+</div>
+
+<div id="warehouse" class="content-section" style="display:none;">
+
+<h2>Warehouse Management</h2>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-warehouse"></i>
+<h3>Total Warehouses</h3>
+<h2>45</h2>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-boxes-stacked"></i>
+<h3>Stored Packages</h3>
+<h2>1,500</h2>
+</div>
+
+</div>
+
+</div>
+
+<div id="drivers" class="content-section" style="display:none;">
+
+    <h2 style="margin-bottom:20px;">Drivers Management</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-user-group"></i>
+            <h3>Total Drivers</h3>
+            <h2>120</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-truck"></i>
+            <h3>On Duty</h3>
+            <h2>95</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Available</h3>
+            <h2>20</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-circle-xmark"></i>
+            <h3>On Leave</h3>
+            <h2>05</h2>
+        </div>
+
+    </div>
+
+    <div class="table-section">
+
+        <h2>Driver Details</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Driver Name</th>
+                <th>Vehicle</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>D001</td>
+                <td>Kumar</td>
+                <td>Truck-01</td>
+                <td>On Duty</td>
+            </tr>
+
+            <tr>
+                <td>D002</td>
+                <td>Ravi</td>
+                <td>Truck-04</td>
+                <td>Available</td>
+            </tr>
+
+            <tr>
+                <td>D003</td>
+                <td>Mani</td>
+                <td>Truck-09</td>
+                <td>On Duty</td>
+            </tr>
+
+            <tr>
+                <td>D004</td>
+                <td>Arun</td>
+                <td>Truck-11</td>
+                <td>Leave</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div id="reports" class="content-section" style="display:none;">
+
+<h2 style="margin-bottom:20px;">Reports Dashboard</h2>
+
+<div class="cards">
+
+    <div class="card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Monthly Revenue</h3>
+        <h2>₹8.5L</h2>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-truck"></i>
+        <h3>Deliveries</h3>
+        <h2>1,250</h2>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-users"></i>
+        <h3>Drivers</h3>
+        <h2>120</h2>
+    </div>
+
+</div>
+
+<div id="settings" class="content-section" style="display:none;">
+
+<h2>System Settings</h2>
+
+<div class="cards">
+
+    <div class="card">
+        <i class="fa-solid fa-user"></i>
+        <h3>Admin Profile</h3>
+        <h2>Edit</h2>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-lock"></i>
+        <h3>Security</h3>
+        <h2>Manage</h2>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-bell"></i>
+        <h3>Notifications</h3>
+        <h2>Enable</h2>
+    </div>
+
+</div>
+
+</div>
+
+<div style="margin-top:30px;">
+
+</div>
+
+<script>
+
+document.getElementById("userEmailDisplay").innerText =
+localStorage.getItem("loggedInEmail");
+
+</script>
+<script>
+function toggleSidebar(){
+
+document.querySelector(".sidebar")
+.classList.toggle("show");
+
+document.querySelector(".overlay")
+.classList.toggle("active");
+
+}
+</script>
+
+<script>
+function showSection(sectionId, element){
+
+document.querySelectorAll(".content-section")
+.forEach(section=>{
+section.style.display="none";
+});
+
+document.getElementById(sectionId)
+.style.display="block";
+
+document.querySelectorAll(".menu-item")
+.forEach(item=>{
+item.classList.remove("active");
+});
+
+element.classList.add("active");
+
+}
+</script>
+</body>
+</html>
+
