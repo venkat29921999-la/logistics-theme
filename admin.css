@@ -20,12 +20,15 @@ body{
         #1e293b
     );
     color:white;
-    min-height:100vh;
+    height:100vh;
     padding:25px;
     position:fixed;
     left:0;
     top:0;
     box-shadow:4px 0 15px rgba(0,0,0,.15);
+
+    overflow-y:auto;      /* Enable vertical scrolling */
+    overflow-x:hidden;
 }
 .topbar h1{
     color:#0f172a;
